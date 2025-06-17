@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: block;
+      text-align: left;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz Game</h1>
+    <div class="question" id="question">What is the capital of India?</div>
+    <div class="options" id="options">
+      <label><input type="radio" name="option" value="Delhi"> Delhi</label>
+      <label><input type="radio" name="option" value="Mumbai"> Mumbai</label>
+      <label><input type="radio" name="option" value="Kolkata"> Kolkata</label>
+      <label><input type="radio" name="option" value="Chennai"> Chennai</label>
+    </div>
+    <button class="btn" onclick="checkAnswer()">Submit</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const correctAnswer = "Delhi";
+
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="option"]:checked');
+      const resultDiv = document.getElementById("result");
+
+      if (!selected) {
+        alert("Please select an answer.");
+        return;
+      }
+
+      if (selected.value === correctAnswer) {
+        resultDiv.textContent = "🎉 Congratulations! Correct Answer!";
+        resultDiv.className = "result correct";
+      } else {
+        result
